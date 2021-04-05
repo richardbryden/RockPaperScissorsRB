@@ -1,0 +1,18 @@
+<div>
+  <button *ngFor="let show of gameOptions" (click)="showGameOptions(show.name)">{{show.name}}</button>
+</div>
+<div>
+  <img src="Rock.png" width="200" height="200" />
+</div>
+
+<div>
+  <div *ngIf="!gameOption">
+    <button *ngFor="let show of gameChoices" (click)="showGameChoices(show.name)">{{show.name}}</button>
+  </div>
+</div>
+<div>
+  <button (click)="runGame()">Run Game</button>
+</div>
+<div>
+  <button (click)="resetGame()">Reset Scores</button>
+</div>
