@@ -24,7 +24,7 @@ namespace RockPaperScissorsRB.Model
 
                 "Rock" => "p1",
 
-                "Paper" => "Tie",
+                "Paper" => "tie",
 
                 "Scissors" => "p2",
 

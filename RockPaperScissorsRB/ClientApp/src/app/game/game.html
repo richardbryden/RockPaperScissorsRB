@@ -2,16 +2,29 @@
   <button *ngFor="let show of gameOptions" (click)="showGameOptions(show.name)">{{show.name}}</button>
 </div>
 <div>
-  <img src="Rock.png" width="200" height="200" />
+  
+  <img *ngIf="gameOption" src="../assets/computer.png" width="200" height="200" />
+  <img *ngIf="!gameOption" src="../assets/human.png" width="200" height="200" />
+  <img src="../assets/computer.png" width="200" height="200" />
 </div>
-
+<div>
+  <img *ngIf="p1Choice =='Rock'" src="../assets/rock.png" width="200" height="200" />
+  <img *ngIf="p1Choice =='Paper'" src="../assets/paper.png" width="200" height="200" />
+  <img *ngIf="p1Choice =='Scissors'" src="../assets/scissors.png" width="200" height="200" />
+  <img *ngIf="p2Choice =='Rock'" src="../assets/rock.png" width="200" height="200" />
+  <img *ngIf="p2Choice =='Paper'" src="../assets/paper.png" width="200" height="200" />
+  <img *ngIf="p2Choice =='Scissors'" src="../assets/scissors.png" width="200" height="200" />
+</div>
 <div>
   <div *ngIf="!gameOption">
     <button *ngFor="let show of gameChoices" (click)="showGameChoices(show.name)">{{show.name}}</button>
   </div>
 </div>
 <div>
-  <button (click)="runGame()">Run Game</button>
+  <button (click)="runGame()">Run Game</button> <div *ngIf="error"> No player selection has been made, please make a selection before running game </div>
+</div>
+<div>
+  Player 1:{{p1Score}}: Player 2:{{p2Score}}: Tie Score:{{tieScore}}
 </div>
 <div>
   <button (click)="resetGame()">Reset Scores</button>

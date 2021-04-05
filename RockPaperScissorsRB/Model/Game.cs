@@ -16,7 +16,7 @@ namespace RockPaperScissorsRB.Model
 
             IChoice p1Choice = RandomChoice.GetRandomChoice();
 
-            if (playerOrComputer == "True")  {
+            if (playerOrComputer == "false")  {
 
                 p1Choice = TextToChoice.GetTextChoice(playerChoice);
 
@@ -28,12 +28,14 @@ namespace RockPaperScissorsRB.Model
 
             score.p2Input = p2Choice.Choice;
 
+            
+
             if (p1Choice.WhoWon(p2Choice) == "p1") { score.p1Score++; }
 
             if (p1Choice.WhoWon(p2Choice) == "p2") { score.p2Score++; }
 
-            if (p1Choice.WhoWon(p2Choice) == "tie") { score.tieScore++; }
-
+            if (p1Choice.WhoWon(p2Choice) == "tie") { score.tieScore++; }            
+            
             return score;
 
         }

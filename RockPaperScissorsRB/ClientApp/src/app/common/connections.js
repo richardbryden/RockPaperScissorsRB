@@ -5,7 +5,7 @@ var rxjs_1 = require("rxjs");
 var Connections = /** @class */ (function () {
     function Connections(http) {
         this.http = http;
-        this.baseURL = '/api/';
+        this.baseURL = '/api/Game/';
     }
     Connections.prototype.getResult = function (pvc, playerChoice, scoreP1, scoreP2, scoreTie) {
         var _this = this;

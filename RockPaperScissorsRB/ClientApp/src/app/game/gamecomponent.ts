@@ -1,41 +1,38 @@
-import { HttpXhrBackend,HttpClient } from '@angular/common/http';
-import { Component, OnInit} from '@angular/core';
-import { Connections, GameData } from '../common/connections';
+import { HttpXhrBackend, HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Connections, GameResult } from '../common/connections';
 
 @Component({
   selector: 'app-game',
   templateUrl: './game.html',
 })
-export class GameComponent implements OnInit{
+export class GameComponent{
   public gameChoices = [{ name: 'Rock' }, { name: 'Paper' }, { name: 'Scissors' }];
   public gameOptions = [{ name: 'Player vs Computer' }, { name: 'Computer vs Computer' }];
   public gameOption: boolean = false;
-  public p1Choice: string = "";
-  public p2Choice: string = "";
+  public p1Choice: string = "null";
+  public p2Choice: string = "null";
   public p1Score: number = 0;
   public p2Score: number = 0;
   public tieScore: number = 0;
-  public gameScore: GameData;
+  public error: boolean = false;
+  public gameScore;
   private connections: Connections;
   
-  constructor() {   
-  }
-
-  ngOnInit(): void{
-    const httpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
-    this.connections = new Connections(httpClient);
+  constructor(http: HttpClient) {
+    this.connections = new Connections(http);
   }
 
   public getData() {
-
     this.connections.getResult(this.gameOption, this.p1Choice, this.p1Score, this.p2Score, this.tieScore).subscribe(data => {
-      this.p1Score = data.p1Score;
-      this.p2Score = data.p2Score;
-      this.tieScore = data.tieSocre;
-      this.p1Choice = data.p1Input;
-      this.p2Choice = data.p2Input;
+      if (data) {
+        this.p1Score = data.gameResult.p1Score;
+        this.p2Score = data.gameResult.p2Score;
+        this.tieScore = data.gameResult.tieScore;
+        this.p1Choice = data.gameResult.p1Input;
+        this.p2Choice = data.gameResult.p2Input;
+      }
     });
-
   }
 
   public showGameOptions(show) {
@@ -47,11 +44,16 @@ export class GameComponent implements OnInit{
   }
 
   public showGameChoices(show) {
-    this.p1Choice = show.name;
+    this.p1Choice = show;
+    this.error = false;
   }
 
   public runGame() {
-    this.getData();
+    if (this.p1Choice == "null" && !this.gameOption) {
+      this.error = true;
+    } else {
+      this.getData();
+    }
   }
 
   public resetGame() {

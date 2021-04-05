@@ -8,15 +8,11 @@ namespace RockPaperScissorsRB.Model
     public class Score
     {
 
-
-
         public int p1Score { get; set; }
 
         public int p2Score { get; set; }
 
         public int tieScore { get; set; }
-
-
 
         public string p1Input { get; set; }
 

@@ -22,11 +22,11 @@ namespace RockPaperScissorsRB.Model
             return p2Choice.Choice switch
             {
 
-                "Rock" => "Tie",
+                "Rock" => "tie",
 
-                "Paper" => "Tie",
+                "Paper" => "tie",
 
-                "Scissors" => "Tie",
+                "Scissors" => "tie",
 
                 _ => throw new NotImplementedException(),
 

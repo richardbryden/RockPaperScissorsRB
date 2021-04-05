@@ -9,12 +9,12 @@ namespace RockPaperScissorsRB.Model
     {
 
         private static readonly Random _random = new Random();
-            
+
 
         public static IChoice GetRandomChoice()
         {
-List<IChoice> choice = new List<IChoice>() { new Rock(),new Paper(),new Scissors()};
-            return choice[_random.Next(0, 2)];
+            List<IChoice> choice = new List<IChoice>() { new Rock(), new Paper(), new Scissors() };
+            return choice[_random.Next(0, 3)];
 
         }
 

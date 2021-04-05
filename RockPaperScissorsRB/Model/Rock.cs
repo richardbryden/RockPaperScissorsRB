@@ -22,7 +22,7 @@ namespace RockPaperScissorsRB.Model
             return p2Choice.Choice switch
             {
 
-                "Rock" => "Tie",
+                "Rock" => "tie",
 
                 "Paper" => "p2",
 
