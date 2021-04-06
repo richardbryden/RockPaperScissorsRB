@@ -5,6 +5,7 @@ import { Connections, GameResult } from '../common/connections';
 @Component({
   selector: 'app-game',
   templateUrl: './game.html',
+  styleUrls: ['./game.css']
 })
 export class GameComponent{
   public gameChoices = [{ name: 'Rock' }, { name: 'Paper' }, { name: 'Scissors' }];

@@ -1,0 +1,41 @@
+button {
+    color: white;
+    background-color: cadetblue;    
+}
+
+.choiceButton {
+  margin: 5px;
+}
+
+.optionsButton{
+    justify-content:space-around;
+    margin:5px;
+    display:flex;
+
+}
+
+.player {
+  display: inline-flex;
+  flex-direction: column;
+  width: 250px;
+}
+
+.players{
+    display:flex;
+    flex-direction:row;   
+}
+
+.title{
+    display:flex;
+    justify-content:space-between;
+    padding:10px;
+}
+.control {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container{
+    max-width:450px;
+}
