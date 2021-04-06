@@ -7,10 +7,6 @@ namespace RockPaperScissorsRB.Model
 {
     public class TextToChoice
     {
-
-        private static readonly Random _random = new Random();
-
-
         public static IChoice GetTextChoice(string input)
         {
             List<IChoice> choice = new List<IChoice>() { new Rock(), new Paper(), new Scissors() , new Invalid()};

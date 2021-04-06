@@ -26,9 +26,7 @@ namespace RockPaperScissorsRB.Model
 
             IChoice p2Choice = RandomChoice.GetRandomChoice();
 
-            score.p2Input = p2Choice.Choice;
-
-            
+            score.p2Input = p2Choice.Choice;            
 
             if (p1Choice.WhoWon(p2Choice) == "p1") { score.p1Score++; }
 
